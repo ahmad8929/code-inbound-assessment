@@ -19,7 +19,7 @@
 1. Clone the repo
 
 ```
-git clone https://www.github.com/<github_username>/<repo_name>.git
+git clone https://www.github.com/ahmad8929/code-inbound-assessment.git
 ```
 
 2. Create a postgresQL database `assignment` in PgAdmin4 dashboard

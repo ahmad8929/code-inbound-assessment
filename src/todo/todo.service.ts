@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
-import { CreateTodoDto } from "./dto/create-todo.dto";
-import { UpdateTodoDto } from "./dto/update-todo.dto";
-import { EntityManager, Repository, UpdateResult } from "typeorm";
-import { Todo } from "./entities/todo.entity";
-import { InjectRepository } from "@nestjs/typeorm";
-import { UserService } from "src/user/user.service";
-import { User } from "src/user/entities/user.entity";
+import { Injectable } from '@nestjs/common';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
+import { EntityManager, Repository, UpdateResult } from 'typeorm';
+import { Todo } from './entities/todo.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UserService } from 'src/user/user.service';
+import { User } from 'src/user/entities/user.entity';
 
 @Injectable()
 export class TodoService {
@@ -13,7 +13,7 @@ export class TodoService {
     @InjectRepository(Todo)
     private todoRepository: Repository<Todo>,
     private readonly userService: UserService,
-    private readonly entityManager: EntityManager
+    private readonly entityManager: EntityManager,
   ) {}
 
   public create(createTodoDto: CreateTodoDto): Promise<Todo> {
@@ -24,7 +24,7 @@ export class TodoService {
   public findAll(
     user: User,
     page: number = 1,
-    size: number = 20
+    size: number = 20,
   ): Promise<[Todo[], number]> {
     const skip = (page - 1) * size;
     return this.todoRepository.findAndCount({
